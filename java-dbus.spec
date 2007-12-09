@@ -14,6 +14,7 @@ BuildRequires:	java-libmatthew
 BuildRequires:	jdk >= 1.5
 BuildRequires:	tex4ht
 Requires:	java-libmatthew
+Requires:	jpackage-utils
 Requires:	jre >= 1.5
 Obsoletes:	java-libdbus
 BuildArch:	noarch
