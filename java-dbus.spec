@@ -1,3 +1,4 @@
+%include	/usr/lib/rpm/macros.java
 Summary:	Java implementation of D-BUS
 Summary(pl.UTF-8):	Implementacja D-BUS w Javie
 Name:		java-dbus
@@ -12,6 +13,9 @@ URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	docbook-to-man
 BuildRequires:	java-libmatthew
 BuildRequires:	jdk >= 1.5
+BuildRequires:	jpackage-utils
+BuildRequires:	rpm-javaprov
+BuildRequires:	rpmbuild(macros) >= 1.300
 BuildRequires:	tex4ht
 Requires:	java-libmatthew
 Requires:	jpackage-utils
@@ -26,13 +30,27 @@ Java implementation of D-BUS.
 %description -l pl.UTF-8
 Implementacja D-BUS w Javie.
 
+%package javadoc
+Summary:	Online manual for %{name}
+Summary(pl.UTF-8):	Dokumentacja online do %{name}
+Group:		Documentation
+Requires:	jpackage-utils
+
+%description javadoc
+Documentation for %{name}.
+
+%description javadoc -l pl.UTF-8
+Dokumentacja do %{name} -
+
+%description javadoc -l fr.UTF-8
+Javadoc pour %{name}.
+
 %prep
 %setup -q -n dbus-java-%{version}
 %patch0 -p1
 
 %build
 %{__make}
-
 %{__make} doc
 
 %install
@@ -42,14 +60,19 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	PREFIX=%{_prefix}
 
+install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+cp -a doc/api/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
+ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
+
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post javadoc
+ln -nfs %{name}-%{version} %{_javadocdir}/%{name}
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING README changelog
-# javadoc
-%doc doc/api
 %attr(755,root,root) %{_bindir}/CreateInterface
 %attr(755,root,root) %{_bindir}/DBusCall
 %attr(755,root,root) %{_bindir}/DBusDaemon
@@ -61,3 +84,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/DBusDaemon.1*
 %{_mandir}/man1/DBusViewer.1*
 %{_mandir}/man1/ListDBus.1*
+
+%files javadoc
+%defattr(644,root,root,755)
+%{_javadocdir}/%{name}-%{version}
+%ghost %{_javadocdir}/%{name}
