@@ -40,7 +40,7 @@ Requires:	jpackage-utils
 Documentation for %{name}.
 
 %description javadoc -l pl.UTF-8
-Dokumentacja do %{name} -
+Dokumentacja do %{name}.
 
 %description javadoc -l fr.UTF-8
 Javadoc pour %{name}.
