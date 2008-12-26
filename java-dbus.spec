@@ -2,12 +2,12 @@
 Summary:	Java implementation of D-BUS
 Summary(pl.UTF-8):	Implementacja D-BUS w Javie
 Name:		java-dbus
-Version:	2.5
+Version:	2.5.1
 Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Development/Languages/Java
 Source0:	http://dbus.freedesktop.org/releases/dbus-java/dbus-java-%{version}.tar.gz
-# Source0-md5:	0fa50b9d2bf5cb2f54e293acca9eb807
+# Source0-md5:	1d1cb956a81be2168452cfea4912d613
 URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	docbook-to-man
 BuildRequires:	java-libmatthew >= 0.6
