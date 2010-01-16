@@ -2,12 +2,12 @@
 Summary:	Java implementation of D-BUS
 Summary(pl.UTF-8):	Implementacja D-BUS w Javie
 Name:		java-dbus
-Version:	2.5.1
+Version:	2.7
 Release:	1
 License:	AFL v2.1 or GPL v2
 Group:		Libraries/Java
 Source0:	http://dbus.freedesktop.org/releases/dbus-java/dbus-java-%{version}.tar.gz
-# Source0-md5:	1d1cb956a81be2168452cfea4912d613
+# Source0-md5:	8b8470db5cd657591bac245e3b6e18e4
 URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	docbook-to-man
 BuildRequires:	java-libmatthew >= 0.6
@@ -61,6 +61,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 cp -a doc/api/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}-%{version}
 ln -s %{name}-%{version} $RPM_BUILD_ROOT%{_javadocdir}/%{name} # ghost symlink
+
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/libdbus-java
 
 %clean
 rm -rf $RPM_BUILD_ROOT
