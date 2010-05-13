@@ -1,13 +1,13 @@
 #
 # Conditional build:
-%bcond_without	doc	# do not build full documentation
+%bcond_with	doc	# build full documentation
 #
 %include	/usr/lib/rpm/macros.java
 Summary:	Java implementation of D-BUS
 Summary(pl.UTF-8):	Implementacja D-BUS w Javie
 Name:		java-dbus
 Version:	2.7
-Release:	1
+Release:	2
 License:	AFL v2.1 or GPL v2
 Group:		Libraries/Java
 Source0:	http://dbus.freedesktop.org/releases/dbus-java/dbus-java-%{version}.tar.gz
