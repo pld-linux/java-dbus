@@ -15,7 +15,8 @@ BuildRequires:	jdk >= 1.5
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
-BuildRequires:	tex4ht
+BuildRequires:	texlive-tex4ht
+BuildRequires:	texlive-xetex
 Requires:	java-libmatthew >= 0.6
 Requires:	jpackage-utils
 Requires:	jre >= 1.5
