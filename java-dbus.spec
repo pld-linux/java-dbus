@@ -1,3 +1,7 @@
+#
+# Conditional build:
+%bcond_without	doc	# do not build full documentation
+#
 %include	/usr/lib/rpm/macros.java
 Summary:	Java implementation of D-BUS
 Summary(pl.UTF-8):	Implementacja D-BUS w Javie
@@ -15,8 +19,10 @@ BuildRequires:	jdk >= 1.5
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.300
+%if %{with doc}
 BuildRequires:	texlive-tex4ht
 BuildRequires:	texlive-xetex
+%endif
 Requires:	java-libmatthew >= 0.6
 Requires:	jpackage-utils
 Requires:	jre >= 1.5
@@ -49,13 +55,15 @@ Javadoc pour %{name}.
 %setup -q -n dbus-java-%{version}
 
 %build
-%{__make}
+%{__make} bin man doc/api/index.html
+%if %{with doc}
 %{__make} doc
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install install-man \
+%{__make} install-bin install-man \
 	DESTDIR=$RPM_BUILD_ROOT \
 	PREFIX=%{_prefix}
 
@@ -74,6 +82,10 @@ ln -nfs %{name}-%{version} %{_javadocdir}/%{name}
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS COPYING README changelog
+%if %{with doc}
+%doc doc/dbus-java.pdf
+%doc doc/dbus-java
+%endif
 %attr(755,root,root) %{_bindir}/CreateInterface
 %attr(755,root,root) %{_bindir}/DBusCall
 %attr(755,root,root) %{_bindir}/DBusDaemon
