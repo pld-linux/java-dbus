@@ -14,6 +14,7 @@ Source0:	http://dbus.freedesktop.org/releases/dbus-java/dbus-java-%{version}.tar
 # Source0-md5:	8b8470db5cd657591bac245e3b6e18e4
 URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	docbook-to-man
+BuildRequires:	gettext-devel
 BuildRequires:	java-libmatthew >= 0.6
 BuildRequires:	jdk >= 1.5
 BuildRequires:	jpackage-utils
