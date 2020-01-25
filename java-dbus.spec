@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_with	doc	# build full documentation
 #
-%include	/usr/lib/rpm/macros.java
 Summary:	Java implementation of D-BUS
 Summary(pl.UTF-8):	Implementacja D-BUS w Javie
 Name:		java-dbus
