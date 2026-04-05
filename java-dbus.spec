@@ -1,12 +1,15 @@
 #
 # Conditional build:
 %bcond_with	doc	# build full documentation
+
+%{?use_default_jdk:%use_default_jdk 8}
+
 #
 Summary:	Java implementation of D-BUS
 Summary(pl.UTF-8):	Implementacja D-BUS w Javie
 Name:		java-dbus
 Version:	2.7
-Release:	3
+Release:	4
 License:	AFL v2.1 or GPL v2
 Group:		Libraries/Java
 Source0:	http://dbus.freedesktop.org/releases/dbus-java/dbus-java-%{version}.tar.gz
@@ -15,10 +18,10 @@ URL:		http://www.freedesktop.org/Software/DBusBindings
 BuildRequires:	docbook-to-man
 BuildRequires:	gettext-tools
 BuildRequires:	java-libmatthew >= 0.6
-BuildRequires:	jdk >= 1.5
+%buildrequires_jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.300
+BuildRequires:	rpmbuild(macros) >= 1.556
 %if %{with doc}
 BuildRequires:	texlive-tex4ht
 BuildRequires:	texlive-xetex
