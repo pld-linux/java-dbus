@@ -28,7 +28,6 @@ BuildRequires:	texlive-xetex
 %endif
 Requires:	java-libmatthew >= 0.6
 Requires:	jpackage-utils
-Requires:	jre >= 1.5
 Obsoletes:	java-libdbus
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
