@@ -21,7 +21,7 @@ BuildRequires:	java-libmatthew >= 0.6
 %buildrequires_jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
-BuildRequires:	rpmbuild(macros) >= 1.556
+BuildRequires:	rpmbuild(macros) >= 2.021
 %if %{with doc}
 BuildRequires:	texlive-tex4ht
 BuildRequires:	texlive-xetex
